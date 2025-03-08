@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Uploads</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50; 
+            color: white; 
+        }
+        tbody tr:nth-child(even) {
+            background-color: #f9f3f3; 
+        }
+        tbody tr:hover {
+            background-color: #e2e0e2; 
+        }
+        .images {
+            display: flex; 
+            gap: 10px; 
+        }
+        img {
+            width: 100px; 
+            height: 100px; 
+            border-radius: 4vmin; 
+        }
+        a {
+            color: #4CAF50; 
+            text-decoration: none; 
+        }
+        a:hover {
+            text-decoration: underline; 
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Uploaded Recipes</h1>
+    <table id="recipeTable">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Uploaded Recipe</th>
+                <th>Recipe Photos</th>
+            </tr>
+        </thead>
+        <tbody id="recipeBody"></tbody>
+    </table>
+
+    <script>
+        
+        const recipes = [
+            {
+                userName: "Rohit",
+                recipeName: "aalootikki",
+                photoUrls: [
+                    "https://www.seriouseats.com/thmb/iGjj5YgyBmeLcPb9KAB_h46SZZQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20220303-aloo-tikki-vicky-wasik-24-6895c79edeee4e618e5fc7a1d39e85a0.jpg",
+                    "https://myheartbeets.com/wp-content/uploads/2020/05/instant-pot-aloo-tikki.jpg",
+                    // "https://via.placeholder.com/100/85e0a8"
+                ],
+                profileUrl: "user/"+"Rohit.html" // User profile URL
+            },
+            {
+                userName: "Ravi",
+                recipeName: "cholebhature",
+                photoUrls: [
+                    "https://en-media.thebetterindia.com/uploads/2022/08/294156779_1082267416022212_8006411537588067133_n-1_11zon-1660981126.jpg",
+                    "https://i.ytimg.com/vi/wAv-mFU7eus/maxresdefault.jpg"
+                ],
+                profileUrl: "user/"+"Ravi.html" // User profile URL
+            },
+            {
+                userName: "Priya",
+                recipeName: "Bhindi",
+                photoUrls: [
+                    "https://www.sailusfood.com/wp-content/uploads/2018/06/bhindi-fry.jpg",
+                    "https://www.vegrecipesofindia.com/wp-content/uploads/2021/06/bhindi-masala-1.jpg"
+                ],
+                profileUrl: "user/"+"Priya.html" // User profile URL
+            }
+        ];
+
+        // Function to display recipes in table
+        function displayRecipes(data) {
+            const tableBody = document.getElementById('recipeBody');
+            data.forEach(recipe => {
+                const row = document.createElement('tr');
+
+                // User Name cell (clickable)
+                const userCell = document.createElement('td');
+                const userLink = document.createElement('a');
+                userLink.href = recipe.profileUrl; // Link to user profile
+                userLink.textContent = recipe.userName; // Display user name
+                userCell.appendChild(userLink);
+                row.appendChild(userCell);
+
+                // Recipe Name cell
+                const recipeCell = document.createElement('td');
+                const recipeLink = document.createElement('a');
+                recipeLink.href ="recipes/"+ recipe.recipeName.toLowerCase() + ".html"; // Relative URL to the recipe
+
+                recipeLink.textContent = recipe.recipeName;
+                recipeCell.appendChild(recipeLink);
+                row.appendChild(recipeCell);
+
+                // Recipe Photos cell
+                const photoCell = document.createElement('td');
+                const imagesDiv = document.createElement('div');
+                imagesDiv.classList.add('images');
+
+                recipe.photoUrls.forEach(url => {
+                    const img = document.createElement('img');
+                    img.src = url;
+                    imagesDiv.appendChild(img);
+                });
+
+                photoCell.appendChild(imagesDiv);
+                row.appendChild(photoCell);
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Call the function to display recipes
+        displayRecipes(recipes);
+    </script>
+</body>
+</html>
