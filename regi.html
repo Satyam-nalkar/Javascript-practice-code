@@ -1,0 +1,297 @@
+<!-- 
+ Name - Amruta
+ email - ams
+ date - 19-12-24
+ desc - register page will take
+        1)Full Name
+        2)UserName
+        3)Email
+        4)Phone Number
+        5)Password
+ value - signinopen page for opeminng login page 
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HomeChef-SignUp</title>
+  <style>
+    /* Importing Google Fonts - Poppins */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      background: url('https://img.freepik.com/free-photo/ingredients-near-pizza_23-2147772081.jpg');
+      background-repeat: no-repeat;
+      background-size: 100%;
+    }
+    
+  
+    .container {
+      max-width: 600px;
+      height: 100%;
+      width: 100%;
+      background-color: #fff;
+      padding: 25px 30px;
+      border-radius: 5px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    }
+    
+
+    
+
+
+    .content form .user-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 20px 0 12px 0;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 50px;
+    }
+
+    .logo img {
+      width: 100px; /* Adjust size as needed */
+      height: auto;
+    }
+    .logo .title {
+      font-size: 25px;
+      font-weight: 500;
+      margin-top: 50px;
+      margin-left: 20%;
+      position: relative;
+      top: 15px;
+    }
+
+    .logo .title::before {
+      content: "";
+      position: absolute;
+      left: 10%;
+      bottom: 10px;
+      height: 3px;
+      width: 80px;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+
+
+    form .user-details .input-box {
+      margin-bottom: 15px;
+      width: calc(100% / 2 - 20px);
+    }
+
+    form .input-box span.details {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .user-details .input-box input {
+      height: 45px;
+      width: 100%;
+      outline: none;
+      font-size: 16px;
+      border-radius: 5px;
+      padding-left: 15px;
+      border: 1px solid #ccc;
+      border-bottom-width: 2px;
+      transition: all 0.3s ease;
+    }
+
+
+    form .category {
+      display: flex;
+      width: 80%;
+      margin: 14px 0;
+      justify-content: space-between;
+    }
+
+    form .category label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    form .category label .dot {
+      height: 18px;
+      width: 18px;
+      border-radius: 50%;
+      margin-right: 10px;
+      background: #d9d9d9;
+      border: 5px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+  
+    form input[type="radio"] {
+      display: none;
+    }
+
+    .terms {
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.terms input {
+  margin-right: 10px;
+  accent-color: #9b59b6; /* Modern browsers styling */
+}
+
+.terms a {
+  color: red;
+  text-decoration: none;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+    form .button {
+      height: 40px;
+      margin: 35px 0;
+      margin-top: 5px;
+    }
+
+    form .button input {
+      height: 100%;
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+
+    form .button input:hover {
+      background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    }
+    
+
+    /* Responsive media query code for mobile devices */
+    @media(max-width: 584px) {
+      .container {
+        max-width: 100%;
+      }
+
+      form .user-details .input-box {
+        margin-bottom: 15px;
+        width: 100%;
+      }
+
+      form .category {
+        width: 100%;
+      }
+
+      .content form .user-details {
+        max-height: 300px;
+        overflow-y: scroll;
+      }
+
+      .user-details::-webkit-scrollbar {
+        width: 5px;
+      }
+    }
+
+    /* Responsive media query code for mobile devices */
+    @media(max-width: 459px) {
+      .container .content .category {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container"> 
+    <div class="logo">
+    <img src="logo.webp">
+    <!-- Title section -->
+    <div class="title">Sign Up</div>
+    </div>
+    <div class="content">
+      <!-- Registration form -->
+      <form action="/public/register.html">
+       
+        <div class="user-details">
+          <!-- Input for Full Name -->
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" placeholder="Enter your name" required>
+          </div>
+          <!-- Input for Username -->
+          <div class="input-box">
+            <span class="details">Username</span>
+            <input type="text" placeholder="Enter your username" required>
+          </div>
+          <!-- Input for Email -->
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="text" placeholder="Enter your email" required>
+          </div>
+          <!-- Input for Phone Number -->
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="text" placeholder="Enter your number" required>
+            
+          </div>
+          <!-- Input for Password -->
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" placeholder="Enter your password" required>
+          </div>
+          <!-- Input for Confirm Password -->
+          <div class="input-box">
+            <span class="details">Confirm Password</span>
+            <input type="password" placeholder="Confirm your password" required>
+          </div>
+        </div>
+
+        <div class="terms">
+          <input type="checkbox" id="terms" required>
+          <label for="terms">I accept the <a href="#">Terms and Conditions</a></label>
+        </div>
+
+        <!-- Submit button -->
+        <div class="button">
+          <input type="submit" value="Register">
+        </div><!-- Submit button -->
+        <div class="button" onclick="signinopen()">
+          <input type="submit" value="Login">
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <script>
+  function signinopen() {
+    window.location.href = "login.html";
+}
+</script>
+</body>
+</html>
