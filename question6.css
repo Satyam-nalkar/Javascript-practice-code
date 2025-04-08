@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work_Sans';
+}
+html,body{
+    height: 100%; 
+    width: 100%;
+}
+body{
+    padding: 20px;
+}
+#tabs{
+   display: flex;
+   gap: 10px;
+}
+.tab{
+    padding: 12px 22px;
+    background-color: #e8e1e1;
+    border:2px solid rgb(198, 195, 195);
+    border-radius: 4px;
+    font-weight: 600;
+}
+h3{
+    display: none;
+    margin-top:20px;
+    width: 50%;
+}
